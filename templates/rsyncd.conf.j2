@@ -1,0 +1,12 @@
+pid file = /run/rsyncd.pid
+max connections = 5
+use chroot = yes
+uid = nobody
+gid = nogroup
+hosts allow = 192.168.111.0/24 127.0.0.1 172.17.0.0/16
+hosts deny  = *
+motd file = /etc/rsync/rsyncd.motd
+
+[gentoo-portage]
+path=/var/db/repos/gentoo
+comment=Gentoo Ebuild Repository

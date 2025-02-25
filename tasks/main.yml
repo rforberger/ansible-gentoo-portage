@@ -1,0 +1,30 @@
+---
+
+- name: Write rsyncd.conf
+  ansible.builtin.template:
+    dest: "/etc/rsyncd.conf"
+    src: "rsyncd.conf.j2"
+  notify:
+    - rsync
+
+- name: Write update script
+  ansible.builtin.template:
+    src: "update-gentoo-portage.sh.j2"
+    dest: "/usr/local/sbin/update-gentoo-portage.sh"
+    mode: 0755
+
+- name: Write cronjob
+  ansible.builtin.cron:
+    name: "gentoo_portage_update-gentoo-portage.sh"
+    backup: yes
+    day: "*"
+    hour: "2"
+    minute: "0"
+    month: "*"
+    weekday: "*"
+    user: "root"
+    job: "/usr/local/sbin/update-gentoo-portage.sh"
+
+
+
+

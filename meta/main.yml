@@ -1,0 +1,15 @@
+---
+dependencies: [rsync]
+
+galaxy_info:
+  role_name: gentoo-portage
+  author: ronnyforberger
+  description: A role to deploy rsyncd for Gentoo Portage
+  company: ""
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.4
+  platforms:
+    - name: Debian
+      versions:
+        - all
+
